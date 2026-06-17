@@ -58,9 +58,9 @@ import {
   deleteContextMemory,
   getListContextMemories,
 } from '../../../rest/contextMemoryAPI';
+import { getEntityIconWithBg } from '../../../utils/Assets/AssetsUtils';
 import contextCenterClassBase from '../../../utils/ContextCenterClassBase';
 import { DEFAULT_ENTITY_PERMISSION } from '../../../utils/PermissionsUtils';
-import searchClassBase from '../../../utils/SearchClassBase';
 import { showErrorToast, showSuccessToast } from '../../../utils/ToastUtils';
 
 const MEMORIES_PER_PAGE = 10;
@@ -642,10 +642,7 @@ const ContextCenterMemoriesPage: FC = () => {
                     {opt.type ? (
                       <Box align="center" className="tw:min-w-0" gap={2}>
                         <div className="tw:shrink-0">
-                          {searchClassBase.getEntityIcon(
-                            opt.type,
-                            'tw:w-6 tw:h-6 tw:text-quaternary'
-                          )}
+                          {getEntityIconWithBg(opt.type)}
                         </div>
                         <Box
                           align="center"
@@ -655,7 +652,7 @@ const ContextCenterMemoriesPage: FC = () => {
                             <Typography
                               ellipsis
                               className="tw:truncate tw:text-utility-gray-800"
-                              size="text-sm"
+                              size="text-xs"
                               weight="medium">
                               {opt.displayName}
                             </Typography>
@@ -667,7 +664,7 @@ const ContextCenterMemoriesPage: FC = () => {
                             </Typography>
                           </div>
                           <Badge
-                            className="tw:shrink-0 tw:uppercase"
+                            className="tw:shrink-0 tw:capitalize"
                             color="gray"
                             size="sm"
                             type="color">
